@@ -1,0 +1,30 @@
+format = """$directory$git_branch$git_status$character"""
+
+palette = "outrun_electric"
+
+[palettes.outrun_electric]
+magenta = "#ff2afc"
+violet  = "#df85ff"
+purple  = "#A875FF"
+cyan    = "#42c6ff"
+blue    = "#1ea8fc"
+green   = "#a7da1e"
+yellow  = "#ffd400"
+red     = "#e61f44"
+grey    = "#546A90"
+
+[directory]
+truncation_length = 3
+style = "cyan bold"
+
+[git_branch]
+format = " [$branch]($style) "
+style = "violet"
+
+[git_status]
+format = '[$all_status$ahead_behind]($style) '
+style = "yellow"
+
+[character]
+success_symbol = "[>](magenta)"
+error_symbol = "[>](red)"

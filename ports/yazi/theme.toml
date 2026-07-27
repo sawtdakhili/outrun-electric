@@ -1,0 +1,234 @@
+# Outrun Electric Theme for Yazi
+# Based on Doom Emacs outrun-electric theme
+# Place this in ~/.config/yazi/theme.toml
+
+[mgr]
+cwd = { fg = "#f2f3f7", bg = "#0c0a20" }
+
+# Hovered
+hovered         = { fg = "#f2f3f7", bg = "#BA45A3" }
+preview_hovered = { underline = true }
+
+# Find
+find_keyword  = { fg = "#ffd400", italic = true }
+find_position = { fg = "#ff2afc", bg = "reset", italic = true }
+
+# Marker
+marker_selected = { fg = "#a7da1e", bg = "#a7da1e" }
+marker_copied   = { fg = "#ffd400", bg = "#ffd400" }
+marker_cut      = { fg = "#e61f44", bg = "#e61f44" }
+
+# Tab
+tab_active   = { fg = "#0c0a20", bg = "#df85ff" }
+tab_inactive = { fg = "#7984D1", bg = "#131033" }
+tab_width    = 8
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#7984D1" }
+
+# Highlighting
+syntect_theme = "base16-ocean.dark"
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#2d2844", bg = "#2d2844" }
+
+# Mode
+mode_normal = { fg = "#0c0a20", bg = "#df85ff", bold = true }
+mode_select = { fg = "#0c0a20", bg = "#a7da1e", bold = true }
+mode_unset  = { fg = "#0c0a20", bg = "#cf433e", bold = true }
+
+# Progress
+progress_label  = { fg = "#df85ff", bold = true }
+progress_normal = { fg = "#df85ff", bg = "#131033" }
+progress_error  = { fg = "#e61f44", bg = "#131033" }
+
+# Permissions
+permissions_t = { fg = "#a7da1e" }
+permissions_r = { fg = "#ffd400" }
+permissions_w = { fg = "#cf433e" }
+permissions_x = { fg = "#df85ff" }
+permissions_s = { fg = "#2d2844" }
+
+[select]
+border   = { fg = "#A875FF" }
+active   = { fg = "#ff2afc" }
+inactive = { fg = "#7984D1" }
+
+[input]
+border   = { fg = "#A875FF" }
+title    = { fg = "#df85ff" }
+value    = { fg = "#ffd400" }
+selected = { reversed = true }
+
+[completion]
+border   = { fg = "#A875FF" }
+active   = { fg = "#ff2afc" }
+inactive = { fg = "#7984D1" }
+
+[tasks]
+border  = { fg = "#A875FF" }
+title   = { fg = "#df85ff" }
+hovered = { underline = true }
+
+[which]
+mask            = { bg = "#090819" }
+cand            = { fg = "#42c6ff" }
+rest            = { fg = "#546A90" }
+desc            = { fg = "#df85ff" }
+separator       = "  "
+separator_style = { fg = "#2d2844" }
+
+[help]
+on      = { fg = "#ff2afc" }
+exec    = { fg = "#42c6ff" }
+desc    = { fg = "#546A90" }
+hovered = { bg = "#2d2844", bold = true }
+footer  = { fg = "#7984D1", bg = "#131033" }
+
+[filetype]
+rules = [
+	# Directories get the electric treatment
+	{ name = "*/", fg = "#df85ff", bold = true },
+	
+	# Images - hot magenta
+	{ mime = "image/*", fg = "#ff2afc" },
+	{ name = "*.png", fg = "#ff2afc" },
+	{ name = "*.jpg", fg = "#ff2afc" },
+	{ name = "*.jpeg", fg = "#ff2afc" },
+	{ name = "*.gif", fg = "#ff2afc" },
+	{ name = "*.webp", fg = "#ff2afc" },
+	{ name = "*.svg", fg = "#ff2afc" },
+	{ name = "*.ico", fg = "#ff2afc" },
+	
+	# Videos - electric yellow
+	{ mime = "video/*", fg = "#ffd400" },
+	{ name = "*.mp4", fg = "#ffd400" },
+	{ name = "*.mkv", fg = "#ffd400" },
+	{ name = "*.avi", fg = "#ffd400" },
+	{ name = "*.mov", fg = "#ffd400" },
+	{ name = "*.webm", fg = "#ffd400" },
+	
+	# Audio - violet/purple
+	{ mime = "audio/*", fg = "#df85ff" },
+	{ name = "*.mp3", fg = "#df85ff" },
+	{ name = "*.flac", fg = "#df85ff" },
+	{ name = "*.wav", fg = "#df85ff" },
+	{ name = "*.ogg", fg = "#df85ff" },
+	{ name = "*.m4a", fg = "#df85ff" },
+	
+	# Archives - electric red
+	{ name = "*.zip", fg = "#e61f44" },
+	{ name = "*.tar", fg = "#e61f44" },
+	{ name = "*.gz", fg = "#e61f44" },
+	{ name = "*.bz2", fg = "#e61f44" },
+	{ name = "*.7z", fg = "#e61f44" },
+	{ name = "*.rar", fg = "#e61f44" },
+	{ name = "*.xz", fg = "#e61f44" },
+	
+	# Documents - neon green
+	{ name = "*.pdf", fg = "#a7da1e" },
+	{ name = "*.doc", fg = "#a7da1e" },
+	{ name = "*.docx", fg = "#a7da1e" },
+	{ name = "*.txt", fg = "#a7da1e" },
+	{ name = "*.md", fg = "#a7da1e" },
+	{ name = "*.rtf", fg = "#a7da1e" },
+	
+	# Spreadsheets - cyan
+	{ name = "*.xls", fg = "#42c6ff" },
+	{ name = "*.xlsx", fg = "#42c6ff" },
+	{ name = "*.csv", fg = "#42c6ff" },
+	
+	# JavaScript/TypeScript - electric yellow
+	{ name = "*.js", fg = "#ffd400" },
+	{ name = "*.mjs", fg = "#ffd400" },
+	{ name = "*.jsx", fg = "#ffd400" },
+	{ name = "*.ts", fg = "#1ea8fc" },
+	{ name = "*.tsx", fg = "#1ea8fc" },
+	{ name = "*.vue", fg = "#a7da1e" },
+	{ name = "*.svelte", fg = "#cf433e" },
+	
+	# Python - neon green
+	{ name = "*.py", fg = "#a7da1e" },
+	{ name = "*.pyw", fg = "#a7da1e" },
+	{ name = "*.pyc", fg = "#546A90" },
+	
+	# Rust - orange
+	{ name = "*.rs", fg = "#cf433e" },
+	{ name = "Cargo.toml", fg = "#cf433e" },
+	{ name = "Cargo.lock", fg = "#546A90" },
+	
+	# Go - cyan
+	{ name = "*.go", fg = "#42c6ff" },
+	{ name = "go.mod", fg = "#42c6ff" },
+	{ name = "go.sum", fg = "#546A90" },
+	
+	# C/C++ - blue
+	{ name = "*.c", fg = "#1ea8fc" },
+	{ name = "*.cpp", fg = "#1ea8fc" },
+	{ name = "*.cc", fg = "#1ea8fc" },
+	{ name = "*.h", fg = "#7984D1" },
+	{ name = "*.hpp", fg = "#7984D1" },
+	
+	# Web files - various neon colors
+	{ name = "*.html", fg = "#cf433e" },
+	{ name = "*.htm", fg = "#cf433e" },
+	{ name = "*.css", fg = "#1ea8fc" },
+	{ name = "*.scss", fg = "#ff2afc" },
+	{ name = "*.sass", fg = "#ff2afc" },
+	{ name = "*.less", fg = "#df85ff" },
+	
+	# Data files - yellow/cyan
+	{ name = "*.json", fg = "#ffd400" },
+	{ name = "*.xml", fg = "#a7da1e" },
+	{ name = "*.toml", fg = "#df85ff" },
+	{ name = "*.yaml", fg = "#ff2afc" },
+	{ name = "*.yml", fg = "#ff2afc" },
+	{ name = "*.ini", fg = "#42c6ff" },
+	
+	# Shell scripts - green
+	{ name = "*.sh", fg = "#a7da1e" },
+	{ name = "*.bash", fg = "#a7da1e" },
+	{ name = "*.zsh", fg = "#a7da1e" },
+	{ name = "*.fish", fg = "#a7da1e" },
+	
+	# Git files - various colors
+	{ name = ".gitignore", fg = "#cf433e" },
+	{ name = ".gitconfig", fg = "#cf433e" },
+	{ name = ".gitmodules", fg = "#cf433e" },
+	
+	# Common config files - purple/blue
+	{ name = "*.conf", fg = "#df85ff" },
+	{ name = "*.config", fg = "#df85ff" },
+	{ name = ".env", fg = "#ffd400" },
+	{ name = ".env.*", fg = "#ffd400" },
+	{ name = "Dockerfile", fg = "#1ea8fc" },
+	{ name = "docker-compose.yml", fg = "#1ea8fc" },
+	{ name = "package.json", fg = "#a7da1e" },
+	{ name = "package-lock.json", fg = "#546A90" },
+	
+	# Logs - dim colors
+	{ name = "*.log", fg = "#546A90" },
+	{ name = "*.tmp", fg = "#546A90" },
+	
+	# Hidden files - less bright but still colorful
+	{ name = ".*", fg = "#7984D1" },
+	
+	# Executables - bright red
+	{ name = "*/bin/*", fg = "#e61f44", bold = true },
+	{ name = "*.exe", fg = "#e61f44", bold = true },
+	{ name = "*.app", fg = "#e61f44", bold = true },
+	{ name = "*.deb", fg = "#e61f44" },
+	{ name = "*.rpm", fg = "#e61f44" },
+	
+	# Fonts - magenta
+	{ name = "*.ttf", fg = "#ff2afc" },
+	{ name = "*.otf", fg = "#ff2afc" },
+	{ name = "*.woff", fg = "#ff2afc" },
+	{ name = "*.woff2", fg = "#ff2afc" },
+	
+	# Fallback for regular files - cyan instead of white
+	{ name = "*", fg = "#42c6ff" },
+]
