@@ -1,7 +1,7 @@
 # CLAUDE.md — `outrun-electric`
 
-Collection of Outrun Electric theme ports. Public-facing repo (not yet
-published). Started 2026-07-27.
+Collection of Outrun Electric theme ports. Public repo, published 2026-07-28:
+https://github.com/sawtdakhili/outrun-electric. Started 2026-07-27.
 
 `PALETTE.md` is the canonical colour spec and the reason this repo exists —
 the palette was written down nowhere and had to be reverse-engineered from the
