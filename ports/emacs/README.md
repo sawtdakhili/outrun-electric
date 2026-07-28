@@ -9,8 +9,15 @@ of the canonical palette in [`../../PALETTE.md`](../../PALETTE.md).
 (setq doom-theme 'doom-outrun-electric)
 ```
 
-Two things the theme does that are worth knowing before you customise it:
+Three things the theme does that are worth knowing before you customise it:
 
+- Fenced code blocks render in a low-contrast lavender. Fix with:
+  ```elisp
+  (custom-set-faces!
+    '(markdown-pre-face         :foreground "#f2f3f7")
+    '(markdown-code-face        :foreground "#f2f3f7" :background "#3b4167" :extend t)
+    '(markdown-inline-code-face :foreground "#f2f3f7" :background "#3b4167"))
+  ```
 - Every markdown heading level inherits one face, so `#`, `##` and `###` are
   all the same red. Give the levels distinct colours with `custom-set-faces!`
   if you want hierarchy — and set `:height` explicitly when you do, because
