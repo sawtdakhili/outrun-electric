@@ -41,5 +41,5 @@ times.
 - The bright ANSI colours (9-12, 14) are derived, not upstream, and are now
   permanently part of the merged scheme — not open to revision without a
   follow-up PR.
-- Not yet published to GitHub as its own repo. Publishing is an irreversible
-  outward action — confirm before creating the remote.
+- Published to GitHub 2026-07-28: https://github.com/sawtdakhili/outrun-electric
+  (public). Remote `origin`, branch `main`.
