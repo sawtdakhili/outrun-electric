@@ -29,11 +29,17 @@ times.
 
 ## Status
 
-- Upstream PR to iTerm2-Color-Schemes: **open, awaiting review** —
-  https://github.com/mbadolato/iTerm2-Color-Schemes/pull/730
-  If merged, the palette ships in Ghostty's bundled themes plus ~30 other
-  terminals. **Do not claim this in README.md until it is actually merged.**
-- The bright ANSI colours (9-12, 14) are derived, not upstream. If a reviewer
-  asks for changes there, `PALETTE.md` and `ports/ghostty/` both need updating.
-- Not yet published to GitHub. Publishing is an irreversible outward action —
-  confirm before creating the remote.
+- Upstream PR to iTerm2-Color-Schemes: **merged** 2026-07-28, no changes
+  requested — https://github.com/mbadolato/iTerm2-Color-Schemes/pull/730
+  Outrun Electric now lives in that repo's `yaml/` + generated formats. It
+  reaches Ghostty's bundled theme list on their next weekly sync from that
+  repo (not yet confirmed landed — check `ghostty +list-themes` after that
+  sync, or when updating Ghostty). Also ships to kitty, Alacritty, WezTerm,
+  Konsole, Windows Terminal, and ~30 others via the same generator.
+- README.md now names Ghostty as upstream-available under "Ports elsewhere"
+  once the sync is confirmed — not done yet, since the sync hasn't landed.
+- The bright ANSI colours (9-12, 14) are derived, not upstream, and are now
+  permanently part of the merged scheme — not open to revision without a
+  follow-up PR.
+- Not yet published to GitHub as its own repo. Publishing is an irreversible
+  outward action — confirm before creating the remote.

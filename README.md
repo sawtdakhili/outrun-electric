@@ -35,9 +35,15 @@ application.
 | Doom Emacs | ema2159 | [doomemacs/themes](https://github.com/doomemacs/themes/blob/master/themes/doom-outrun-electric-theme.el) |
 | RStudio | JeffreyZammit | [Rstudio-outrun-theme](https://github.com/JeffreyZammit/Rstudio-outrun-theme) |
 | Atom | StephKeys | [sweet-synthwave-syntax](https://github.com/StephKeys/sweet-synthwave-syntax) |
+| iTerm2, kitty, Alacritty, WezTerm, Konsole, Windows Terminal, and ~30 others | sawtdakhili (contributed upstream) | [mbadolato/iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) — [PR #730](https://github.com/mbadolato/iTerm2-Color-Schemes/pull/730), merged |
 
 Only the ports in this repo are maintained here. The table above is a
 convenience index — please raise issues with those authors, not here.
+
+The iTerm2-Color-Schemes contribution reaches Ghostty's own bundled theme list
+on their next weekly sync from that repo — check `ghostty +list-themes` to see
+whether it has landed yet before pointing anyone to it as a Ghostty-native
+option.
 
 Beware that several popular themes describe themselves as "outrun inspired"
 but use unrelated colour values, among them LaserWave, Synthwave '84 and
