@@ -14,6 +14,10 @@ times.
 - `PALETTE.md` — canonical spec, ANSI mapping, porting guidance
 - `README.md` — public-facing; ports table + index of third-party ports
 - `ports/<app>/` — the actual config files
+- `screenshots/` — one per port, embedded in README.md's Screenshots section.
+  All scenes are confined to this repo's own directory tree (never `~` or
+  `~/Documents` at large) so nothing outside the public repo can leak into a
+  listing or prompt path.
 
 ## Working rules
 
@@ -43,3 +47,14 @@ times.
   follow-up PR.
 - Published to GitHub 2026-07-28: https://github.com/sawtdakhili/outrun-electric
   (public). Remote `origin`, branch `main`.
+- Screenshots added 2026-07-29. The yazi port got a substantial rewrite in the
+  process — most of it was silently inert (written against a pre-25.x Yazi
+  schema: `[tab]`/`[select]`/`[completion]`/`mgr.hovered` and
+  `[status].mode_*`/`permissions_*` are all dead keys on current Yazi, which
+  just falls back to upstream defaults for them). It was also over-applying
+  violet to every directory row, which combined with Yazi's reverse-video
+  hover to make the cursor color depend on whatever it was hovering — fixed
+  by giving the cursor a fixed small magenta mark instead, matching how
+  Ghostty's cursor-color and Claude Code's promptBorder both do it (a thin
+  mark, not a filled block — see `ports/yazi/theme.toml`'s own comments for
+  the reasoning, worth reading in full before touching that file again).
