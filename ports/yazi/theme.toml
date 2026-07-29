@@ -1,13 +1,17 @@
 # Outrun Electric Theme for Yazi
 # Based on Doom Emacs outrun-electric theme
 # Place this in ~/.config/yazi/theme.toml
+#
+# Written against Yazi's current schema (26.x). Older Yazi releases used
+# different table/key names for several of these — [tab] instead of [tabs],
+# [status].mode_* instead of a top-level [mode], mgr.hovered/preview_hovered
+# instead of [indicator], [select]/[completion] instead of [pick]/[cmp],
+# and different [help] keys. Silently-ignored unknown keys are how a chunk of
+# this file used to do nothing at all — if you're porting to a much older or
+# newer Yazi, diff against `yazi-config/preset/theme-dark.toml` upstream first.
 
 [mgr]
 cwd = { fg = "#f2f3f7", bg = "#0c0a20" }
-
-# Hovered
-hovered         = { fg = "#f2f3f7", bg = "#BA45A3" }
-preview_hovered = { underline = true }
 
 # Find
 find_keyword  = { fg = "#ffd400", italic = true }
@@ -17,11 +21,12 @@ find_position = { fg = "#ff2afc", bg = "reset", italic = true }
 marker_selected = { fg = "#a7da1e", bg = "#a7da1e" }
 marker_copied   = { fg = "#ffd400", bg = "#ffd400" }
 marker_cut      = { fg = "#e61f44", bg = "#e61f44" }
+marker_marked   = { fg = "#42c6ff", bg = "#42c6ff" }
 
-# Tab
-tab_active   = { fg = "#0c0a20", bg = "#df85ff" }
-tab_inactive = { fg = "#7984D1", bg = "#131033" }
-tab_width    = 8
+# Count (bulk copy/cut/select badges)
+count_copied   = { fg = "#0c0a20", bg = "#ffd400" }
+count_cut      = { fg = "#0c0a20", bg = "#e61f44" }
+count_selected = { fg = "#0c0a20", bg = "#a7da1e" }
 
 # Border
 border_symbol = "│"
@@ -30,48 +35,46 @@ border_style  = { fg = "#7984D1" }
 # Highlighting
 syntect_theme = "base16-ocean.dark"
 
-[status]
-separator_open  = ""
-separator_close = ""
-separator_style = { fg = "#2d2844", bg = "#2d2844" }
+[tabs]
+active   = { fg = "#0c0a20", bg = "#ff2afc", bold = true }
+inactive = { fg = "#7984D1", bg = "#131033" }
 
-# Mode
-mode_normal = { fg = "#0c0a20", bg = "#df85ff", bold = true }
-mode_select = { fg = "#0c0a20", bg = "#a7da1e", bold = true }
-mode_unset  = { fg = "#0c0a20", bg = "#cf433e", bold = true }
+# Magenta cursor as a mark, not a fill — matching the other two ports rather
+# than inventing a third convention: Ghostty's cursor-color is a thin caret
+# (its one filled highlight, selection-background, uses the softer base5
+# #BA45A3 instead, and only while actively selecting text); Claude Code's
+# promptBorder is a border line, and that port's own README says outright
+# that its "background" key isn't a fill, it's a border/title accent. Both
+# treat magenta as always-visible but small. A full-row magenta block was a
+# third, unprecedented pattern — bold+coloured text reads just as clearly
+# (magenta has the highest presence in the palette) without needing area.
+[indicator]
+current = { fg = "#ff2afc", bold = true }
+parent  = { fg = "#f2f3f7", bg = "#1f1147" }
+preview = { underline = true }
+
+[mode]
+normal_main = { fg = "#0c0a20", bg = "#ff2afc", bold = true }
+normal_alt  = { fg = "#ff2afc", bg = "#1f1147" }
+
+select_main = { fg = "#0c0a20", bg = "#a7da1e", bold = true }
+select_alt  = { fg = "#a7da1e", bg = "#1f1147" }
+
+unset_main = { fg = "#0c0a20", bg = "#e61f44", bold = true }
+unset_alt  = { fg = "#e61f44", bg = "#1f1147" }
+
+[status]
+# Permissions (renamed from permissions_t/r/w/x/s; no more sticky-bit key)
+perm_sep   = { fg = "#546A90" }
+perm_type  = { fg = "#a7da1e" }
+perm_read  = { fg = "#ffd400" }
+perm_write = { fg = "#e61f44" }
+perm_exec  = { fg = "#df85ff" }
 
 # Progress
 progress_label  = { fg = "#df85ff", bold = true }
 progress_normal = { fg = "#df85ff", bg = "#131033" }
 progress_error  = { fg = "#e61f44", bg = "#131033" }
-
-# Permissions
-permissions_t = { fg = "#a7da1e" }
-permissions_r = { fg = "#ffd400" }
-permissions_w = { fg = "#cf433e" }
-permissions_x = { fg = "#df85ff" }
-permissions_s = { fg = "#2d2844" }
-
-[select]
-border   = { fg = "#A875FF" }
-active   = { fg = "#ff2afc" }
-inactive = { fg = "#7984D1" }
-
-[input]
-border   = { fg = "#A875FF" }
-title    = { fg = "#df85ff" }
-value    = { fg = "#ffd400" }
-selected = { reversed = true }
-
-[completion]
-border   = { fg = "#A875FF" }
-active   = { fg = "#ff2afc" }
-inactive = { fg = "#7984D1" }
-
-[tasks]
-border  = { fg = "#A875FF" }
-title   = { fg = "#df85ff" }
-hovered = { underline = true }
 
 [which]
 mask            = { bg = "#090819" }
@@ -81,154 +84,86 @@ desc            = { fg = "#df85ff" }
 separator       = "  "
 separator_style = { fg = "#2d2844" }
 
+[confirm]
+border = { fg = "#A875FF" }
+title  = { fg = "#df85ff" }
+
+[spot]
+border   = { fg = "#A875FF" }
+title    = { fg = "#df85ff" }
+tbl_col  = { fg = "#42c6ff" }
+tbl_cell = { fg = "#ffd400", reversed = true }
+
+[notify]
+title_info  = { fg = "#a7da1e" }
+title_warn  = { fg = "#ffd400" }
+title_error = { fg = "#e61f44" }
+
+# Renamed from [select]
+[pick]
+border   = { fg = "#A875FF" }
+active   = { fg = "#ff2afc", bold = true }
+inactive = { fg = "#7984D1" }
+
+[input]
+border   = { fg = "#A875FF" }
+title    = { fg = "#df85ff" }
+value    = { fg = "#ffd400" }
+selected = { reversed = true }
+
+# Renamed from [completion]
+[cmp]
+border   = { fg = "#A875FF" }
+active   = { reversed = true }
+inactive = { fg = "#7984D1" }
+
+[tasks]
+border  = { fg = "#A875FF" }
+title   = { fg = "#df85ff" }
+hovered = { fg = "#ff2afc", bold = true }
+
+# Keys changed from on/exec/desc/footer to border/chord/action.
 [help]
-on      = { fg = "#ff2afc" }
-exec    = { fg = "#42c6ff" }
-desc    = { fg = "#546A90" }
+border  = { fg = "#A875FF" }
+chord   = { fg = "#42c6ff" }
+action  = {}
 hovered = { bg = "#2d2844", bold = true }
-footer  = { fg = "#7984D1", bg = "#131033" }
 
 [filetype]
+# Deliberately short. The previous version of this file gave almost every
+# extension its own hue — which is precisely the mistake PALETTE.md warns
+# against ("a port that spreads all twelve hues evenly across roles reads as
+# noisy and muted, because nothing anchors it"). Directories and ordinary
+# files stay uncoloured on purpose, so the magenta cursor in [indicator]
+# above is the only thing that reliably draws the eye. Everything below is
+# a genuine exception worth flagging, not a lookup table.
 rules = [
-	# Directories get the electric treatment
-	{ name = "*/", fg = "#df85ff", bold = true },
-	
-	# Images - hot magenta
-	{ mime = "image/*", fg = "#ff2afc" },
-	{ name = "*.png", fg = "#ff2afc" },
-	{ name = "*.jpg", fg = "#ff2afc" },
-	{ name = "*.jpeg", fg = "#ff2afc" },
-	{ name = "*.gif", fg = "#ff2afc" },
-	{ name = "*.webp", fg = "#ff2afc" },
-	{ name = "*.svg", fg = "#ff2afc" },
-	{ name = "*.ico", fg = "#ff2afc" },
-	
-	# Videos - electric yellow
-	{ mime = "video/*", fg = "#ffd400" },
-	{ name = "*.mp4", fg = "#ffd400" },
-	{ name = "*.mkv", fg = "#ffd400" },
-	{ name = "*.avi", fg = "#ffd400" },
-	{ name = "*.mov", fg = "#ffd400" },
-	{ name = "*.webm", fg = "#ffd400" },
-	
-	# Audio - violet/purple
+	# Directories - bold, not coloured; shape (the folder icon) carries the
+	# distinction, not hue
+	{ url = "*/", bold = true },
+
+	# Runnable - the one thing worth a hard warning colour, and genuinely rare
+	{ url = "*", is = "exec", fg = "#e61f44", bold = true },
+	{ url = "*.exe", fg = "#e61f44", bold = true },
+	{ url = "*.app", fg = "#e61f44", bold = true },
+	{ url = "*/bin/*", fg = "#e61f44", bold = true },
+
+	# Archives - inert cargo, not code; muted rather than alarming
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#546A90" },
+
+	# Media - one shared accent for leaf content (images/video/audio),
+	# instead of the original's three near-duplicate rule blocks
+	{ mime = "image/*", fg = "#df85ff" },
+	{ mime = "video/*", fg = "#df85ff" },
 	{ mime = "audio/*", fg = "#df85ff" },
-	{ name = "*.mp3", fg = "#df85ff" },
-	{ name = "*.flac", fg = "#df85ff" },
-	{ name = "*.wav", fg = "#df85ff" },
-	{ name = "*.ogg", fg = "#df85ff" },
-	{ name = "*.m4a", fg = "#df85ff" },
-	
-	# Archives - electric red
-	{ name = "*.zip", fg = "#e61f44" },
-	{ name = "*.tar", fg = "#e61f44" },
-	{ name = "*.gz", fg = "#e61f44" },
-	{ name = "*.bz2", fg = "#e61f44" },
-	{ name = "*.7z", fg = "#e61f44" },
-	{ name = "*.rar", fg = "#e61f44" },
-	{ name = "*.xz", fg = "#e61f44" },
-	
-	# Documents - neon green
-	{ name = "*.pdf", fg = "#a7da1e" },
-	{ name = "*.doc", fg = "#a7da1e" },
-	{ name = "*.docx", fg = "#a7da1e" },
-	{ name = "*.txt", fg = "#a7da1e" },
-	{ name = "*.md", fg = "#a7da1e" },
-	{ name = "*.rtf", fg = "#a7da1e" },
-	
-	# Spreadsheets - cyan
-	{ name = "*.xls", fg = "#42c6ff" },
-	{ name = "*.xlsx", fg = "#42c6ff" },
-	{ name = "*.csv", fg = "#42c6ff" },
-	
-	# JavaScript/TypeScript - electric yellow
-	{ name = "*.js", fg = "#ffd400" },
-	{ name = "*.mjs", fg = "#ffd400" },
-	{ name = "*.jsx", fg = "#ffd400" },
-	{ name = "*.ts", fg = "#1ea8fc" },
-	{ name = "*.tsx", fg = "#1ea8fc" },
-	{ name = "*.vue", fg = "#a7da1e" },
-	{ name = "*.svelte", fg = "#cf433e" },
-	
-	# Python - neon green
-	{ name = "*.py", fg = "#a7da1e" },
-	{ name = "*.pyw", fg = "#a7da1e" },
-	{ name = "*.pyc", fg = "#546A90" },
-	
-	# Rust - orange
-	{ name = "*.rs", fg = "#cf433e" },
-	{ name = "Cargo.toml", fg = "#cf433e" },
-	{ name = "Cargo.lock", fg = "#546A90" },
-	
-	# Go - cyan
-	{ name = "*.go", fg = "#42c6ff" },
-	{ name = "go.mod", fg = "#42c6ff" },
-	{ name = "go.sum", fg = "#546A90" },
-	
-	# C/C++ - blue
-	{ name = "*.c", fg = "#1ea8fc" },
-	{ name = "*.cpp", fg = "#1ea8fc" },
-	{ name = "*.cc", fg = "#1ea8fc" },
-	{ name = "*.h", fg = "#7984D1" },
-	{ name = "*.hpp", fg = "#7984D1" },
-	
-	# Web files - various neon colors
-	{ name = "*.html", fg = "#cf433e" },
-	{ name = "*.htm", fg = "#cf433e" },
-	{ name = "*.css", fg = "#1ea8fc" },
-	{ name = "*.scss", fg = "#ff2afc" },
-	{ name = "*.sass", fg = "#ff2afc" },
-	{ name = "*.less", fg = "#df85ff" },
-	
-	# Data files - yellow/cyan
-	{ name = "*.json", fg = "#ffd400" },
-	{ name = "*.xml", fg = "#a7da1e" },
-	{ name = "*.toml", fg = "#df85ff" },
-	{ name = "*.yaml", fg = "#ff2afc" },
-	{ name = "*.yml", fg = "#ff2afc" },
-	{ name = "*.ini", fg = "#42c6ff" },
-	
-	# Shell scripts - green
-	{ name = "*.sh", fg = "#a7da1e" },
-	{ name = "*.bash", fg = "#a7da1e" },
-	{ name = "*.zsh", fg = "#a7da1e" },
-	{ name = "*.fish", fg = "#a7da1e" },
-	
-	# Git files - various colors
-	{ name = ".gitignore", fg = "#cf433e" },
-	{ name = ".gitconfig", fg = "#cf433e" },
-	{ name = ".gitmodules", fg = "#cf433e" },
-	
-	# Common config files - purple/blue
-	{ name = "*.conf", fg = "#df85ff" },
-	{ name = "*.config", fg = "#df85ff" },
-	{ name = ".env", fg = "#ffd400" },
-	{ name = ".env.*", fg = "#ffd400" },
-	{ name = "Dockerfile", fg = "#1ea8fc" },
-	{ name = "docker-compose.yml", fg = "#1ea8fc" },
-	{ name = "package.json", fg = "#a7da1e" },
-	{ name = "package-lock.json", fg = "#546A90" },
-	
-	# Logs - dim colors
-	{ name = "*.log", fg = "#546A90" },
-	{ name = "*.tmp", fg = "#546A90" },
-	
-	# Hidden files - less bright but still colorful
-	{ name = ".*", fg = "#7984D1" },
-	
-	# Executables - bright red
-	{ name = "*/bin/*", fg = "#e61f44", bold = true },
-	{ name = "*.exe", fg = "#e61f44", bold = true },
-	{ name = "*.app", fg = "#e61f44", bold = true },
-	{ name = "*.deb", fg = "#e61f44" },
-	{ name = "*.rpm", fg = "#e61f44" },
-	
-	# Fonts - magenta
-	{ name = "*.ttf", fg = "#ff2afc" },
-	{ name = "*.otf", fg = "#ff2afc" },
-	{ name = "*.woff", fg = "#ff2afc" },
-	{ name = "*.woff2", fg = "#ff2afc" },
-	
-	# Fallback for regular files - cyan instead of white
-	{ name = "*", fg = "#42c6ff" },
+
+	# Docs worth noticing at a glance
+	{ url = "*.md", fg = "#a7da1e" },
+	{ url = "README*", fg = "#a7da1e" },
+
+	# Hidden files - present but de-emphasised, not another bright hue
+	{ url = ".*", fg = "#546A90" },
+
+	# Fallback - plain foreground; most files are not exceptions
+	{ url = "*", fg = "#f2f3f7" },
 ]
