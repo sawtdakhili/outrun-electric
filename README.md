@@ -15,6 +15,17 @@ upstream project.
 values, the ANSI mapping, and guidance on assigning them when porting to a new
 application.
 
+## Screenshots
+
+| | |
+|---|---|
+| [Ghostty](ports/ghostty/) | [yazi](ports/yazi/) |
+| ![Ghostty](screenshots/ghostty.png) | ![yazi](screenshots/yazi.png) |
+| [bat](ports/bat/) | [starship](ports/starship/) |
+| ![bat](screenshots/bat.png) | ![starship](screenshots/starship.png) |
+| [fzf + eza](ports/shell/) | [Claude Code](ports/claude-code/) |
+| ![fzf](screenshots/shell.png) | ![Claude Code](screenshots/claude-code.png) |
+
 ## Ports in this repo
 
 | Application | Path | Install |
