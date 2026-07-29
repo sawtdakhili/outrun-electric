@@ -9,6 +9,18 @@ Doom Emacs theme file. Read it before adding a port; it includes the presence
 scores and the three assignment rules learned from getting a port wrong three
 times.
 
+## Next up
+
+**Visual rework of the repo — not started, start here next session.** The
+user wants the repo itself to look better, not just document the theme:
+a logo, and the palette's own colours actually shown off in the README's
+presentation (not just terminal screenshots of it in use — think a styled
+header, colour swatches, badges). Explicitly asked for this to be researched
+and benchmarked, not just implemented from scratch — look at how other
+well-regarded palette/dotfile repos present themselves (e.g. Catppuccin,
+Rosé Pine, Tokyo Night, Gruvbox) before designing anything here. Study first,
+then propose an approach — don't jump straight to a logo or a README rewrite.
+
 ## Layout
 
 - `PALETTE.md` — canonical spec, ANSI mapping, porting guidance
