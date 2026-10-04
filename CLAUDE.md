@@ -11,10 +11,11 @@ times.
 
 ## Next up
 
-**Browser themes — designed and settled 2026-10-04, uncommitted.** The flat
-minimal design is final and verified live: one `bg` surface everywhere,
-active tab marked magenta (a square in Firefox and Brave vertical, magenta
-title + × text in Chrome horizontal), dark × on the square. Three ports:
+**Browser themes — designed, settled, committed and pushed 2026-10-04
+(`12d4d6c`; Pi port in `32f440e` before it).** The flat minimal design is
+final and verified live: one `bg` surface everywhere, active tab marked
+magenta (a square in Firefox and Brave vertical, magenta title + × text in
+Chrome horizontal), dark × on the square. Three ports:
 `ports/firefox` 1.2.0 (the reference — the only browser whose theme API
 reaches every line), `ports/brave` 1.5.4 (vertical tabs only — Brave paints
 the active square from `background_tab`, inverted vs Chrome horizontal,
@@ -23,11 +24,9 @@ hence a separate file; do not merge with `ports/chrome/`), `ports/chrome`
 seen, rejected the same day). Known limits are documented in each port's
 README. Open items:
 
-1. Quick eyeball: the Chrome revert to 1.6.1 hasn't been explicitly
-   confirmed (it restores the previously approved look).
-2. Screenshots for README, then commit everything (the Pi port is also
-   still uncommitted).
-3. **Publish** to addons.mozilla.org (free) and the Chrome Web Store ($5
+1. Screenshots for the README's Screenshots table (browsers are missing
+   from it), then commit.
+2. **Publish** to addons.mozilla.org (free) and the Chrome Web Store ($5
    one-time fee; also covers Brave/Edge). Still unanswered: icon
    (placeholder now, real one after the visual rework below?), is the $5
    fee OK, listing name "Outrun Electric" with samrap/ema2159 credited?
@@ -35,7 +34,7 @@ README. Open items:
    only (userContent.css can't ship in a store theme). Firefox also needs a
    packed, signed xpi — until then its theme is re-loaded by hand after
    every restart.
-4. Optional Firefox polish, low priority: userContent.css
+3. Optional Firefox polish, low priority: userContent.css
    destructive-button red + `--input-text-background-color`,
    `ntp_card_background`.
 
@@ -92,7 +91,7 @@ then propose an approach — don't jump straight to a logo or a README rewrite.
 
 - Browser themes finalized 2026-10-04: flat-minimal design across three
   ports (chrome, brave, firefox), each port's README documents its design
-  and hard limits. Uncommitted as of that date.
+  and hard limits. Committed and pushed the same day (`12d4d6c`).
 - Upstream PR to iTerm2-Color-Schemes: **merged** 2026-07-28, no changes
   requested — https://github.com/mbadolato/iTerm2-Color-Schemes/pull/730
   Outrun Electric now lives in that repo's `yaml/` + generated formats. It
