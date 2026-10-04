@@ -1,0 +1,55 @@
+/* Outrun Electric — Firefox built-in pages (Settings, Add-ons, about:debugging,
+   new tab, …). Companion to the theme in this folder.
+   Needs toolkit.legacyUserProfileCustomizations.stylesheets = true (see user.js).
+   Quiet like the theme: no coloured borders or focus rings, magenta only for
+   links and the accent. */
+
+@-moz-document url-prefix("about:") {
+  :root {
+    /* newer design tokens */
+    --background-color-canvas: #0c0a20 !important;
+    --background-color-box: #131033 !important;
+    --text-color: #f2f3f7 !important;
+    --text-color-deemphasized: #546a90 !important;
+    --border-color: #1f1147 !important;
+    --border-color-card: #131033 !important;
+    --border-color-interactive: #1f1147 !important;
+    --link-color: #ff2afc !important;
+    --link-color-hover: #ff74fd !important;
+    --link-color-active: #ff74fd !important;
+    --color-accent-primary: #ff2afc !important;
+    --color-accent-primary-hover: #ff74fd !important;
+    --color-accent-primary-active: #ff74fd !important;
+    --button-background-color: #1f1147 !important;
+    --button-background-color-hover: #2d2844 !important;
+    --button-background-color-active: #2d2844 !important;
+    --button-text-color: #f2f3f7 !important;
+    --focus-outline-color: #3b4167 !important;
+
+    /* older in-content variables, still used by some pages */
+    --in-content-page-background: #0c0a20 !important;
+    --in-content-page-color: #f2f3f7 !important;
+    --in-content-text-color: #f2f3f7 !important;
+    --in-content-deemphasized-text: #546a90 !important;
+    --in-content-box-background: #131033 !important;
+    --in-content-box-border-color: #131033 !important;
+    --in-content-border-color: #1f1147 !important;
+    --in-content-item-hover: #1f1147 !important;
+    --in-content-item-selected: #1f1147 !important;
+    --in-content-item-selected-text: #f2f3f7 !important;
+    --in-content-button-background: #1f1147 !important;
+    --in-content-button-background-hover: #2d2844 !important;
+    --in-content-button-background-active: #2d2844 !important;
+    --in-content-link-color: #ff2afc !important;
+    --in-content-link-color-hover: #ff74fd !important;
+    --in-content-accent-color: #ff2afc !important;
+    --in-content-primary-button-background: #ff2afc !important;
+    --in-content-primary-button-text-color: #0c0a20 !important;
+    --in-content-focus-outline-color: #3b4167 !important;
+
+    /* new tab page */
+    --newtab-background-color: #0c0a20 !important;
+    --newtab-background-color-secondary: #131033 !important;
+    --newtab-text-primary-color: #f2f3f7 !important;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Outrun Electric",
+  "version": "1.6.1",
+  "description": "High-contrast neon synthwave theme. Palette by samrap and ema2159.",
+  "theme": {
+    "colors": {
+      "frame": [12, 10, 32],
+      "frame_inactive": [12, 10, 32],
+      "frame_incognito": [12, 10, 32],
+      "frame_incognito_inactive": [12, 10, 32],
+      "background_tab": [12, 10, 32],
+      "background_tab_inactive": [12, 10, 32],
+      "toolbar": [12, 10, 32],
+      "button_background": [12, 10, 32],
+      "tab_text": [255, 42, 252],
+      "tab_background_text": [84, 106, 144],
+      "tab_background_text_inactive": [84, 106, 144],
+      "bookmark_text": [242, 243, 247],
+      "toolbar_button_icon": [255, 42, 252],
+      "toolbar_text": [242, 243, 247],
+      "omnibox_background": [12, 10, 32],
+      "omnibox_text": [242, 243, 247],
+      "ntp_background": [12, 10, 32],
+      "ntp_text": [242, 243, 247],
+      "ntp_link": [255, 42, 252],
+      "ntp_header": [255, 42, 252]
+    },
+    "properties": {
+      "ntp_background_alignment": "bottom"
+    }
+  }
+}

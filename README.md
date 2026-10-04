@@ -33,9 +33,13 @@ application.
 | Ghostty | [`ports/ghostty/`](ports/ghostty/) | Copy to `~/.config/ghostty/themes/`, then `theme = outrun-electric` |
 | yazi | [`ports/yazi/`](ports/yazi/) | Copy to `~/.config/yazi/theme.toml` |
 | Claude Code | [`ports/claude-code/`](ports/claude-code/) | Copy to `~/.claude/themes/`, then `/theme` |
+| Pi | [`ports/pi/`](ports/pi/) | Copy to `~/.pi/agent/themes/`, then `/settings` → Theme |
 | bat | [`ports/bat/`](ports/bat/) | Copy to `~/.config/bat/themes/`, run `bat cache --build`, set `--theme="Outrun Electric"` |
 | starship | [`ports/starship/`](ports/starship/) | Palette block for `~/.config/starship.toml` |
 | fzf + eza | [`ports/shell/`](ports/shell/) | Source from `.zshrc` |
+| Chrome | [`ports/chrome/`](ports/chrome/) | `chrome://extensions` → Developer mode → Load unpacked |
+| Brave (vertical tabs) | [`ports/brave/`](ports/brave/) | `chrome://extensions` → Developer mode → Load unpacked; see README for the new-tab background step |
+| Firefox | [`ports/firefox/`](ports/firefox/) | `about:debugging` → Load Temporary Add-on; see its README for a permanent install and optional built-in-page colours |
 
 ## Ports elsewhere
 

@@ -1,0 +1,61 @@
+{
+  "manifest_version": 2,
+  "name": "Outrun Electric",
+  "version": "1.2.0",
+  "description": "High-contrast neon synthwave theme. Palette by samrap and ema2159.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "outrun-electric@sawtdakhili"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#0c0a20",
+      "frame_inactive": "#0c0a20",
+      "tab_background_text": "#546a90",
+      "tab_selected": "#ff2afc",
+      "tab_text": "#0c0a20",
+      "tab_line": "#0c0a20",
+      "tab_loading": "#ff2afc",
+      "tab_background_separator": "#0c0a20",
+
+      "toolbar": "#0c0a20",
+      "toolbar_text": "#f2f3f7",
+      "icons": "#ff2afc",
+      "icons_attention": "#ffd400",
+      "button_background_hover": "#1f1147",
+      "button_background_active": "#2d2844",
+      "toolbar_top_separator": "#0c0a20",
+      "toolbar_bottom_separator": "#0c0a20",
+      "toolbar_vertical_separator": "#0c0a20",
+
+      "toolbar_field": "#0c0a20",
+      "toolbar_field_text": "#f2f3f7",
+      "toolbar_field_border": "#0c0a20",
+      "toolbar_field_focus": "#0c0a20",
+      "toolbar_field_text_focus": "#f2f3f7",
+      "toolbar_field_border_focus": "#0c0a20",
+      "toolbar_field_highlight": "#3b4167",
+      "toolbar_field_highlight_text": "#f2f3f7",
+
+      "popup": "#0c0a20",
+      "popup_text": "#f2f3f7",
+      "popup_border": "#0c0a20",
+      "popup_highlight": "#3b4167",
+      "popup_highlight_text": "#f2f3f7",
+
+      "sidebar": "#0c0a20",
+      "sidebar_text": "#f2f3f7",
+      "sidebar_border": "#0c0a20",
+      "sidebar_highlight": "#3b4167",
+      "sidebar_highlight_text": "#f2f3f7",
+
+      "ntp_background": "#0c0a20",
+      "ntp_text": "#f2f3f7"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

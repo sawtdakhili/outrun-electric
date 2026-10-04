@@ -11,6 +11,34 @@ times.
 
 ## Next up
 
+**Browser themes — designed and settled 2026-10-04, uncommitted.** The flat
+minimal design is final and verified live: one `bg` surface everywhere,
+active tab marked magenta (a square in Firefox and Brave vertical, magenta
+title + × text in Chrome horizontal), dark × on the square. Three ports:
+`ports/firefox` 1.2.0 (the reference — the only browser whose theme API
+reaches every line), `ports/brave` 1.5.4 (vertical tabs only — Brave paints
+the active square from `background_tab`, inverted vs Chrome horizontal,
+hence a separate file; do not merge with `ports/chrome/`), `ports/chrome`
+1.6.1 (Chrome has no active-tab slot; a magenta toolbar was built as 1.6.0,
+seen, rejected the same day). Known limits are documented in each port's
+README. Open items:
+
+1. Quick eyeball: the Chrome revert to 1.6.1 hasn't been explicitly
+   confirmed (it restores the previously approved look).
+2. Screenshots for README, then commit everything (the Pi port is also
+   still uncommitted).
+3. **Publish** to addons.mozilla.org (free) and the Chrome Web Store ($5
+   one-time fee; also covers Brave/Edge). Still unanswered: icon
+   (placeholder now, real one after the visual rework below?), is the $5
+   fee OK, listing name "Outrun Electric" with samrap/ema2159 credited?
+   CWS needs a 128px icon + a 1280×800 screenshot; AMO takes the manifest
+   only (userContent.css can't ship in a store theme). Firefox also needs a
+   packed, signed xpi — until then its theme is re-loaded by hand after
+   every restart.
+4. Optional Firefox polish, low priority: userContent.css
+   destructive-button red + `--input-text-background-color`,
+   `ntp_card_background`.
+
 **Visual rework of the repo — not started, start here next session.** The
 user wants the repo itself to look better, not just document the theme:
 a logo, and the palette's own colours actually shown off in the README's
@@ -34,9 +62,26 @@ then propose an approach — don't jump straight to a logo or a README rewrite.
 ## Working rules
 
 - **These files are copies.** The live configs are at `~/.config/ghostty/themes/`,
-  `~/.config/yazi/`, `~/.claude/themes/`, `~/.config/bat/themes/`,
-  `~/.config/starship.toml`, and a block inside `~/.zshrc`. Edit the live file
+  `~/.config/yazi/`, `~/.claude/themes/`, `~/.pi/agent/themes/` (Pi),
+  `~/.config/bat/themes/`, `~/.config/starship.toml`, and a block inside `~/.zshrc`. Edit the live file
   first, verify it in the running app, then copy here. Never edit only the copy.
+  Exception: the browser theme manifests have no live config — Chrome loads
+  `ports/chrome/`, Brave loads `ports/brave/` (vertical-tab design, split
+  from `ports/chrome/` on 2026-10-04 because Brave paints the active square
+  from `background_tab`, inverted vs Chrome horizontal — do not merge),
+  Firefox loads `ports/firefox/`. Those folders are the source; reload the
+  theme in the browser after editing. Firefox's load is temporary and
+  vanishes on restart until a signed xpi replaces it.
+  But Firefox's `userContent.css` and `user.js` *are* copies: live in
+  `~/Library/Application Support/Firefox/Profiles/f2436bjp.default-release/`
+  (`chrome/userContent.css`, `user.js`); Firefox reads them only at startup.
+- Brave ignores the theme's new-tab colour; the user set
+  `ports/brave/brave-newtab.png` (flat `bg`) as Brave's uploaded background
+  instead. Browser internal pages (settings, extensions) can't be themed in
+  Chrome/Brave at all.
+- The Pi port's one derived value: `thinkingMax #ff74fd` = magenta lightened 35%
+  toward white (same rule as the bright ANSI set). JSON can't carry comments, so
+  it's recorded here.
 - Third-party ports are **links only** — no vendored copies, no issues accepted
   for them.
 - Attribution goes to samrap (original VS Code theme, the name) and ema2159
@@ -45,6 +90,9 @@ then propose an approach — don't jump straight to a logo or a README rewrite.
 
 ## Status
 
+- Browser themes finalized 2026-10-04: flat-minimal design across three
+  ports (chrome, brave, firefox), each port's README documents its design
+  and hard limits. Uncommitted as of that date.
 - Upstream PR to iTerm2-Color-Schemes: **merged** 2026-07-28, no changes
   requested — https://github.com/mbadolato/iTerm2-Color-Schemes/pull/730
   Outrun Electric now lives in that repo's `yaml/` + generated formats. It
