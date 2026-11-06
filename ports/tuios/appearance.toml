@@ -1,0 +1,15 @@
+# Outrun Electric for tuios — the [appearance] block that goes with the theme.
+# Paste into tuios's config.toml (`tuios config path` prints where it is).
+
+[appearance]
+theme = "outrun_electric"
+border_focused_color = "magenta"
+# Draw the Agents view and dialogs like windows: magenta frame, navy background.
+pane_overlays = true
+overlay_border_color = "magenta"
+# Title as plain text on the border: inside the default pill, the agent-state
+# circle is drawn in the pill's dark text colour and loses its state colour.
+window_title_style = "plain"
+# No darkening behind panels: otherwise the navy top bar turns near-black
+# whenever the Agents view is open.
+modal_dim = 0

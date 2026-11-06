@@ -62,7 +62,7 @@ then propose an approach — don't jump straight to a logo or a README rewrite.
 
 - **These files are copies.** The live configs are at `~/.config/ghostty/themes/`,
   `~/.config/yazi/`, `~/.claude/themes/`, `~/.pi/agent/themes/` (Pi),
-  `~/.config/bat/themes/`, `~/.config/starship.toml`, and a block inside `~/.zshrc`. Edit the live file
+  `~/.config/bat/themes/`, `~/Library/Application Support/tuios/` (`themes/outrun_electric.json` + the `[appearance]` block of `config.toml`), `~/.config/starship.toml`, and a block inside `~/.zshrc`. Edit the live file
   first, verify it in the running app, then copy here. Never edit only the copy.
   Exception: the browser theme manifests have no live config — Chrome loads
   `ports/chrome/`, Brave loads `ports/brave/` (vertical-tab design, split

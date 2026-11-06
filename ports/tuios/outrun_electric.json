@@ -1,0 +1,48 @@
+{
+  "id": "outrun_electric",
+  "dark": true,
+  "fg": "#f2f3f7",
+  "bg": "#0c0a20",
+  "cursor": "#ff2afc",
+  "selection_bg": "#BA45A3",
+  "black": "#131033",
+  "red": "#e61f44",
+  "green": "#a7da1e",
+  "yellow": "#ffd400",
+  "blue": "#1ea8fc",
+  "purple": "#ff2afc",
+  "cyan": "#42c6ff",
+  "white": "#f2f3f7",
+  "bright_black": "#546a90",
+  "bright_red": "#ef6d85",
+  "bright_green": "#c6e76d",
+  "bright_yellow": "#ffe359",
+  "bright_blue": "#6dc6fd",
+  "bright_purple": "#df85ff",
+  "bright_cyan": "#84daff",
+  "bright_white": "#ffffff",
+  "chrome": {
+    "accent": "#ff2afc",
+    "accent_bright": "#df85ff",
+    "success": "#ffd400",
+    "warning": "#ffd400",
+    "error": "#e61f44",
+    "info": "#1ea8fc",
+    "surface": "#110d26",
+    "border": {
+      "unfocused": "#3b4167"
+    },
+    "canvas": "#0c0a20",
+    "panel": "#131033",
+    "card": "#1f1147",
+    "status": {
+      "busy": "#c6e76d"
+    },
+    "dock": {
+      "ground": "#0c0a20"
+    },
+    "rail": {
+      "ground": "#0c0a20"
+    }
+  }
+}
