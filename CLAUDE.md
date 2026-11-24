@@ -78,6 +78,12 @@ then propose an approach — don't jump straight to a logo or a README rewrite.
   `ports/brave/brave-newtab.png` (flat `bg`) as Brave's uploaded background
   instead. Browser internal pages (settings, extensions) can't be themed in
   Chrome/Brave at all.
+- Enhancer for YouTube port (`ports/enhancer-for-youtube/`, added 2026-11-24)
+  is a copy too: the live CSS sits in Brave's Enhancer settings → Theme →
+  Custom theme, over YouTube-DeepDark (Pink Dark) selected underneath.
+  Pitch-black variant on purpose (main background `#000000`). A Brave theme
+  cannot recolour web pages; page colour problems on YouTube come from
+  DeepDark, not `ports/brave/`.
 - The Pi port's one derived value: `thinkingMax #ff74fd` = magenta lightened 35%
   toward white (same rule as the bright ANSI set). JSON can't carry comments, so
   it's recorded here.
