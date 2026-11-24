@@ -40,6 +40,7 @@ application.
 | Chrome | [`ports/chrome/`](ports/chrome/) | `chrome://extensions` → Developer mode → Load unpacked |
 | Brave (vertical tabs) | [`ports/brave/`](ports/brave/) | `chrome://extensions` → Developer mode → Load unpacked; see README for the new-tab background step |
 | Firefox | [`ports/firefox/`](ports/firefox/) | `about:debugging` → Load Temporary Add-on; see its README for a permanent install and optional built-in-page colours |
+| Enhancer for YouTube | [`ports/enhancer-for-youtube/`](ports/enhancer-for-youtube/) | Select YouTube-DeepDark in Enhancer's Theme settings, then paste `custom-theme.css` into Custom theme |
 | tuios | [`ports/tuios/`](ports/tuios/) | Copy `outrun_electric.json` to the themes folder next to tuios's `config.toml` (`tuios config path`), then paste `appearance.toml` into that config |
 
 ## Ports elsewhere

@@ -1,0 +1,16 @@
+/* Outrun Electric for YouTube, via Enhancer for YouTube + YouTube-DeepDark.
+   Pitch-black variant: main background is #000000, not the palette's bg. */
+html:root, html:root * {
+  --main-color: #ff2afc !important;        /* magenta */
+  --main-background: #000000 !important;   /* pitch black */
+  --second-background: #0c0a20 !important; /* bg */
+  --hover-background: #1f1147 !important;  /* base1 */
+  --main-text: #f2f3f7 !important;         /* fg */
+  --dimmer-text: #919ad9 !important;       /* base8 */
+  --shadow: #000000 !important;
+}
+
+/* YouTube's snackbar (e.g. "Experiencing interruptions?") keeps a light box
+   under DeepDark's light text. Make the box dark instead. */
+snackbar-view-model * { background: transparent !important; }
+snackbar-view-model { background: #0c0a20 !important; border-radius: 12px; }
